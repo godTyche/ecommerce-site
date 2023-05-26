@@ -87,7 +87,6 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     //   subject: "ShopIT Password Recovery",
     //   message,
     // });
-    console.log(resetUrl);
 
     res.status(200).json({
       success: true,

@@ -1,10 +1,9 @@
 import React, { Fragment, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { MDBDataTable } from "mdbreact";
 
-import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
+import Loader from "../layout/Loader";
 
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,11 +22,11 @@ const ListOrders = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, error, alert]);
+  }, [dispatch, alert, error]);
 
   const setOrders = () => {
     const data = {
-      colums: [
+      columns: [
         {
           label: "Order ID",
           field: "id",
@@ -44,7 +43,7 @@ const ListOrders = () => {
           sort: "asc",
         },
         {
-          label: "status",
+          label: "Status",
           field: "status",
           sort: "asc",
         },
@@ -57,19 +56,17 @@ const ListOrders = () => {
       rows: [],
     };
 
-    console.log(orders);
-
     orders.forEach((order) => {
       data.rows.push({
         id: order._id,
-        numOfItems: order.numOfItems,
+        numOfItems: order.orderItems.length,
         amount: `$${order.totalPrice}`,
         status:
           order.orderStatus &&
           String(order.orderStatus).includes("Delivered") ? (
-            <p stye={{ color: "green" }}>{order.orderStatus}</p>
+            <p style={{ color: "green" }}>{order.orderStatus}</p>
           ) : (
-            <p stye={{ color: "red" }}>{order.orderStatus}</p>
+            <p style={{ color: "red" }}>{order.orderStatus}</p>
           ),
         actions: (
           <Link to={`/order/${order._id}`} className="btn btn-primary">
@@ -78,14 +75,15 @@ const ListOrders = () => {
         ),
       });
     });
+
     return data;
   };
 
   return (
     <Fragment>
-      <MetaData title="My Orders" />
+      <MetaData title={"My Orders"} />
 
-      <h1 className="mt-5">My Orders</h1>
+      <h1 className="my-5">My Orders</h1>
 
       {loading ? (
         <Loader />
