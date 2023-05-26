@@ -5,12 +5,9 @@ import MetaData from "../layout/MetaData";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword, clearErrors } from "../../actions/userActions";
-import { useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-
-  const navigate = useNavigate();
 
   const alert = useAlert();
   const dispatch = useDispatch();

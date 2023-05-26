@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { countries } from "countries-list";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import MetaData from "../layout/MetaData";
 import CheckoutSteps from "./CheckoutSteps";

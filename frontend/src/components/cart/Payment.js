@@ -16,8 +16,6 @@ import {
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
-  PaymentElement,
-  CardElement,
 } from "@stripe/react-stripe-js";
 
 const options = {
