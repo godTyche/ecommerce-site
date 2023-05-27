@@ -12,6 +12,7 @@ import ConfirmOrder from "./components/cart/ConfirmOrder";
 import Payment from "./components/cart/Payment";
 import OrderSuccess from "./components/cart/OrderSuccess";
 import ListOrders from "./components/order/ListOrders";
+import OrderDetails from "./components/order/OrderDetails";
 
 import Login from "./components/auth/Login.js";
 import Register from "./components/auth/Register.js";
@@ -149,6 +150,15 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <ListOrders />
+                  </ProtectedRoute>
+                }
+                exact
+              />
+              <Route
+                path="/order/:id"
+                element={
+                  <ProtectedRoute>
+                    <OrderDetails />
                   </ProtectedRoute>
                 }
                 exact
