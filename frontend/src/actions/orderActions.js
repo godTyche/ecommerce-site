@@ -46,8 +46,6 @@ export const myOrders = () => async (dispatch) => {
 
     const { data } = await axios.get("/api/v1/orders/me");
 
-    console.log(data);
-
     dispatch({
       type: MY_ORDERS_SUCCESS,
       payload: data.orders,
