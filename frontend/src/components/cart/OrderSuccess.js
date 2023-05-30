@@ -19,7 +19,7 @@ const OrderSuccess = () => {
 
           <h2>Your Order has been placed successfully.</h2>
 
-          <Link to="/order">Go to Orders</Link>
+          <Link to="/orders/me">Go to Orders</Link>
         </div>
       </div>
     </Fragment>
