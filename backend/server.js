@@ -4,7 +4,7 @@ const connectDatabase = require("./config/database");
 const cloudinary = require("cloudinary").v2;
 //const dotenv = require("dotenv");
 
-// Handle Uncaught Exceptions
+// Handle Uncaught Exceptions1
 process.on("uncaughtException", (err) => {
   console.log(`ERROR: ${err.stack}`);
   console.log("Shutting down due to uncaught exception");
